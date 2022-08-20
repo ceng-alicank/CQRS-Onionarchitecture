@@ -1,5 +1,4 @@
 ﻿using Application.Features.Products.Commands.Request;
-using Application.Features.Products.Commands.Request;
 using Application.Features.Products.Handlers;
 using Application.Features.Products.Queries.Request;
 using MediatR;
@@ -13,7 +12,6 @@ namespace WebAPI.Controllers
     public class ProductController : ControllerBase
     {
         private readonly IMediator _mediator;
-
         public ProductController(IMediator mediator)
         {
             _mediator = mediator;

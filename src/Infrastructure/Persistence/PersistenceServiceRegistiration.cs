@@ -16,7 +16,6 @@ namespace Persistence
                (options => options.UseSqlServer(_configuration.GetConnectionString("NorthwindConnectionString")));
 
             services.AddTransient<IProductRepository, ProductRepository>();
-            services.AddTransient<ICategoryRepository, CategoryRepository>();
         }
     }
 }
