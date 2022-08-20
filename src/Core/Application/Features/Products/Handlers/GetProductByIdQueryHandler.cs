@@ -13,8 +13,8 @@ namespace Application.Features.Products.Handlers
 {
     public class GetProductByIdQueryHandler : IRequestHandler<GetProductByIdQueryRequest, GetProductByIdQueryResponse>
     {
-        IMapper _mapper;
-        IProductRepository _productRepository;
+        private readonly IMapper _mapper;
+        private readonly IProductRepository _productRepository;
 
         public GetProductByIdQueryHandler(IProductRepository productRepository, IMapper mapper)
         {
@@ -24,7 +24,7 @@ namespace Application.Features.Products.Handlers
 
         public async Task<GetProductByIdQueryResponse> Handle(GetProductByIdQueryRequest request, CancellationToken cancellationToken)
         {
-            if (request.Id!=null)
+            if (request.Id!=Guid.Empty)
             {
                 var entity =  await _productRepository.GetById(request.Id);
                 if (entity!=null)
